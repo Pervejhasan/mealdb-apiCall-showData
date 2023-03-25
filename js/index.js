@@ -9,14 +9,13 @@ const loadData = async (meal, dataLimit) => {
       // console.log("limited number of data show", limitedData);
       mealShow(limitedData);
     } else {
-      console.log("less than 6 data", data.meals.length);
+      // console.log("less than 6 data", data.meals.length);
       mealShow(data.meals);
     }
   } catch (error) {
     console.error(error);
   }
 };
-
 const mealShow = (data) => {
   const mealContainer = document.getElementById("mealContainer");
   mealContainer.innerHTML = "";
@@ -76,7 +75,18 @@ const showFoodDetails = (mealDetails) => {
 const searchFood = () => {
   const fooCategory = document.getElementById("foodCategory").value;
   document.getElementById("foodCategory").value = "";
-  loadData(fooCategory, 6);
+  if (fooCategory == "") {
+    alert("Please enter a food category name...");
+    return;
+  } else {
+    loadData(fooCategory, 6);
+  }
 };
 
 loadData("rice", 6);
+
+// ==============================================================
+// document.getElementById("showAll").addEventListener("click", () => {
+//   document.getElementById("mealContainer");
+// });
+// ==================================================================
