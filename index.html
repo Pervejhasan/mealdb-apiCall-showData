@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="/images/company-logo.png" />
+    <title>MealDB</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/6afa902829.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/style/style.css" />
+  </head>
+  <body>
+    <header>
+      <section class="">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+          <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">
+              <img
+                src="/images/company-logo.png"
+                alt="Logo"
+                width="30"
+                height="24"
+                class="d-inline-block align-text-top"
+              />
+              <span class="fw-bold ms-1"> Tasty HUT</span>
+            </a>
+            <!-- <a class="navbar-brand" href="#">Tasty HUT</a> -->
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNavDropdown"
+              aria-controls="navbarNavDropdown"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact Us</a>
+                </li>
+              </ul>
+              <button
+                class="btn btn-warning bg-opacity-50 fw-bold ms-md-4"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </nav>
+      </section>
+    </header>
+
+    <main>
+      <section>
+        <div class="card text-bg-dark rounded-0">
+          <img src="/images/banner_1.png" class="card-img" alt="banner-image" />
+          <div
+            class="card-img-overlay"
+            style="background-color: rgba(0, 0, 0, 0.532)"
+          >
+            <div class="text-center pt-md-5">
+              <h2 class="card-title fw-bold">
+                Taste Our Delicious <br />
+                Best Foods
+              </h2>
+              <p class="card-text py-1">
+                There are many variations of passages of Lorem Ipsum available,
+                but the majority have <br />
+                suffered alteration in some form, by injected humou.
+              </p>
+              <div class="input-group mb-3 w-50 mx-auto">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search any food"
+                  aria-label="Recipient's username"
+                  aria-describedby="button-addon2"
+                  id="foodCategory"
+                />
+                <button
+                  class="btn btn-warning bg-opacity-50 fw-bold text-black"
+                  type="button"
+                  id="button-addon2"
+                  onclick="searchFood()"
+                >
+                  <i class="fa-solid fa-magnifying-glass text-black"></i> Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- meal show through category -->
+      <section class="container py-5">
+        <h2 class="text-center fw-bold pb-4">Your Favorite Food</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-3" id="mealContainer"></div>
+      </section>
+
+      <!-- food details show -->
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="mealDetail"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="mealDetailLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <img
+              src=""
+              alt="food-image "
+              class="img-fluid rounded-2"
+              id="foodDetailsImage"
+            />
+            <div class="modal-body" id="food-details"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger mx-auto"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
