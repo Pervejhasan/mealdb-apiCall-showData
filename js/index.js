@@ -1,10 +1,17 @@
-const loadData = async (meal) => {
+const loadData = async (meal, dataLimit) => {
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`;
   try {
     const res = await fetch(url);
-    const data = await res.json();
-    console.log(data.meals);
-    mealShow(data.meals);
+    let data = await res.json();
+    if (data.meals.length > dataLimit) {
+      // console.log("length", data.meals.length);
+      let limitedData = data.meals.slice(0, dataLimit);
+      // console.log("limited number of data show", limitedData);
+      mealShow(limitedData);
+    } else {
+      console.log("less than 6 data", data.meals.length);
+      mealShow(data.meals);
+    }
   } catch (error) {
     console.error(error);
   }
@@ -13,6 +20,7 @@ const loadData = async (meal) => {
 const mealShow = (data) => {
   const mealContainer = document.getElementById("mealContainer");
   mealContainer.innerHTML = "";
+
   data.forEach((meal) => {
     console.log(meal);
     const mealDiv = document.createElement("div");
@@ -52,8 +60,9 @@ const foodDetailsLoad = (mealId) => {
 const showFoodDetails = (mealDetails) => {
   document.getElementById("foodDetailsImage").src = mealDetails[0].strMealThumb;
   const food_details = document.getElementById("food-details");
+  food_details.innerHTML = "";
   const div = document.createElement("div");
-
+  div.classList.add("p-2");
   div.innerHTML = `
 <h3><b>FoodName:</b> ${mealDetails[0].strMeal}</h3>
 <h4><b>Food Category:</b>  ${mealDetails[0].strCategory} </h4>
@@ -67,7 +76,7 @@ const showFoodDetails = (mealDetails) => {
 const searchFood = () => {
   const fooCategory = document.getElementById("foodCategory").value;
   document.getElementById("foodCategory").value = "";
-  loadData(fooCategory);
+  loadData(fooCategory, 6);
 };
 
-loadData("rice");
+loadData("rice", 6);
